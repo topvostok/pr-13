@@ -63,6 +63,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Classes\MessagesContext.cs" />
+    <Compile Include="Classes\UsersContext.cs" />
     <Compile Include="Interfaces\IMessages.cs" />
     <Compile Include="Interfaces\IUsers.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -98,7 +100,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Classes\" />
     <Folder Include="Elements\" />
     <Folder Include="Images\" />
   </ItemGroup>
