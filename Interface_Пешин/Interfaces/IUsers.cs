@@ -1,13 +1,10 @@
-﻿using System;
+﻿using Interface_Пешин.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Interface_Пешин.Interfaces
 {
-    internal class IUsers
+    public interface IUsers
     {
-
+        void All(out List<Users> users);
     }
 }

@@ -1,13 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Interface_Пешин.Models
 {
-    internal class Messages
+    public class Messages
     {
+        public int Id { get; set; }
+        public string Message { get; set; }
+        public DateTime Create { get; set; }
+        public int IdUser { get; set; }
+        public string ImagePath { get; set; } // Путь к изображению
+        public bool HasImage => !string.IsNullOrEmpty(ImagePath);
 
+        public Messages() { }
+
+        public Messages(string message, DateTime create, int idUser, string imagePath = null)
+        {
+            Message = message;
+            Create = create;
+            IdUser = idUser;
+            ImagePath = imagePath;
+        }
     }
 }

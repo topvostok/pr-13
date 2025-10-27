@@ -3,10 +3,92 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Interface_Пешин"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Мессенджер" Height="600" Width="1000">
+
+    <Grid Background="#FF3F3F3F">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Левая панель - список пользователей -->
+        <Border Grid.Column="0" Background="#FF2D2D30" Margin="5">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel x:Name="ParentUser"/>
+            </ScrollViewer>
+        </Border>
+
+        <!-- Правая панель - переписка -->
+        <Grid x:Name="BlockMessage" Grid.Column="1" Margin="5" IsEnabled="False">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Заголовок с именем выбранного пользователя -->
+            <Border Grid.Row="0" Background="#FF007ACC" Padding="10">
+                <TextBlock x:Name="SelectedUserName" 
+                          Text="Выберите пользователя" 
+                          Foreground="White" 
+                          FontSize="16" 
+                          FontWeight="Bold"/>
+            </Border>
+
+            <!-- Область сообщений -->
+            <ScrollViewer x:Name="MessagesScrollViewer" Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                <StackPanel x:Name="parentMessage" Margin="5"/>
+            </ScrollViewer>
+
+            <!-- Панель ввода -->
+            <Border Grid.Row="2" Background="#FF2D2D30" Padding="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Поле ввода текста -->
+                    <TextBox x:Name="MessageText" 
+                            Grid.Column="0"
+                            Height="40" 
+                            Background="White" 
+                            Foreground="Black" 
+                            FontSize="14"
+                            Padding="10"
+                            VerticalContentAlignment="Center"
+                            KeyUp="SendMessage"
+                            IsEnabled="{Binding ElementName=BlockMessage, Path=IsEnabled}"
+                            TextWrapping="Wrap"
+                            AcceptsReturn="False"
+                            Margin="0,0,5,0"/>
+
+                    <!-- Кнопка отправки изображения -->
+                    <Button x:Name="ImageButton" 
+                           Grid.Column="1"
+                           Content="📷" 
+                           Height="40" 
+                           Width="40" 
+                           FontSize="16"
+                           Background="#FF007ACC" 
+                           Foreground="White"
+                            Click="SendImage_Click"
+                            Margin="0,0,5,0"/>
+
+                    <!-- Кнопка отправки сообщения -->
+                    <Button x:Name="SendButton" 
+                           Grid.Column="2"
+                           Content="➤" 
+                           Height="40" 
+                           Width="40" 
+                           FontSize="16"
+                            Background="#FF007ACC" 
+                            Foreground="White"
+                            Click="SendButton_Click"/>
+                </Grid>
+            </Border>
+        </Grid>
     </Grid>
 </Window>

@@ -1,13 +1,12 @@
-﻿using System;
+﻿using Interface_Пешин.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Interface_Пешин.Interfaces
 {
-    internal class IMessages
+    public interface IMessages
     {
-
+        void All(out List<Messages> messages);
+        void Save(bool update);
+        void Delete();
     }
 }

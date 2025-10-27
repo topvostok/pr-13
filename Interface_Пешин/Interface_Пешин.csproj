@@ -55,6 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Elements\Messages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Elements\Users.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -64,7 +72,13 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Classes\MessagesContext.cs" />
-    <Compile Include="Classes\UsersContext.cs" />
+    <Compile Include="Classes\UserContext.cs" />
+    <Compile Include="Elements\Messages.xaml.cs">
+      <DependentUpon>Messages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\Users.xaml.cs">
+      <DependentUpon>Users.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IMessages.cs" />
     <Compile Include="Interfaces\IUsers.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -74,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Messages.cs" />
+    <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -99,9 +114,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Elements\" />
-    <Folder Include="Images\" />
+    <Resource Include="Images\aooshchepkov.jpg" />
+    <Resource Include="Images\image-1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
