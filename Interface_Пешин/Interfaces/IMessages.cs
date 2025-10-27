@@ -8,5 +8,6 @@ namespace Interface_Пешин.Interfaces
 {
     internal class IMessages
     {
+
     }
 }
