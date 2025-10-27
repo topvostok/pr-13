@@ -8,5 +8,6 @@ namespace Interface_Пешин.Models
 {
     internal class Messages
     {
+
     }
 }
